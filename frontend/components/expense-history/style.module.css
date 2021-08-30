@@ -1,0 +1,21 @@
+.container {
+  width: 100%;
+  max-width: 409px;
+}
+
+.container > h1 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
+  text-transform: uppercase;
+  color: #000000;
+  margin-bottom: 0.25rem;
+}
+.line {
+  height: 2px;
+  background-color: #dfdfdf;
+  width: 100%;
+  margin-bottom: 1rem;
+}

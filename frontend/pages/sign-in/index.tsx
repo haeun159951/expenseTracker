@@ -21,8 +21,9 @@ const Index = () => {
       setPasswordErr('');
       const response = await sign_in(username, password);
       localStorage.setItem('token', response.token);
-      //router.push('/dashboard');
+      router.push('/dashboard');
     } catch (exception) {
+      console.log(exception);
       if (exception?.status === 400) {
         const errors = exception?.data?.validation_errors;
         if (errors.username) {
