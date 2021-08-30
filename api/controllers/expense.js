@@ -1,20 +1,20 @@
-const { Router } = require("express");
+const { Router } = require('express');
 const ExpenseRouter = Router();
-const { isAuthenticated } = require("../middlewares/security/security");
-const { ExpenseModel } = require("../models/expense");
+const { isAuthenticated } = require('../middlewares/security/security');
+const { ExpenseModel } = require('../models/expense');
 const {
   create_expense_rules,
-} = require("../validators/expense/create_expense_rules");
+} = require('../validators/expense/create_expense_rules');
 const {
   delete_expense_rules,
-} = require("../validators/expense/delete_expense_rules");
+} = require('../validators/expense/delete_expense_rules');
 const {
   update_expense_rules,
-} = require("../validators/expense/update_expense_rules");
-const { validate } = require("../validators/validate");
+} = require('../validators/expense/update_expense_rules');
+const { validate } = require('../validators/validate');
 
 ExpenseRouter.post(
-  "/expense",
+  '/expense',
   isAuthenticated,
   create_expense_rules(),
   validate,
@@ -31,13 +31,13 @@ ExpenseRouter.post(
   }
 );
 
-ExpenseRouter.get("/expenses", isAuthenticated, async (req, res) => {
+ExpenseRouter.get('/expenses', isAuthenticated, async (req, res) => {
   const expenses = await ExpenseModel.find({ user: req.claims._id }).exec();
   res.status(200).json({ expenses });
 });
 
 ExpenseRouter.put(
-  "/expense",
+  '/expense',
   isAuthenticated,
   update_expense_rules(),
   validate,
@@ -60,13 +60,13 @@ ExpenseRouter.put(
 );
 
 ExpenseRouter.delete(
-  "/expense",
+  '/expense/:_id',
   isAuthenticated,
   delete_expense_rules(),
   validate,
   async (req, res) => {
     const expense = await ExpenseModel.findOneAndDelete({
-      _id: req.body._id,
+      _id: req.params._id,
       user: req.claims._id,
     }).exec();
     res.status(200).json({ message: expense });

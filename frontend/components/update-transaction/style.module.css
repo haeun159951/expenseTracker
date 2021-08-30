@@ -1,0 +1,44 @@
+.container {
+  width: 100%;
+}
+
+.container > p {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
+  /* identical to box height */
+
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+  color: #000000;
+}
+
+.line {
+  height: 2px;
+  background-color: #d4d4d4;
+  width: 100%;
+}
+
+.container > button {
+  width: 100%;
+  margin-bottom: 1rem;
+  background: #3a3ad7;
+  border: 2px solid #4d4deb;
+  box-sizing: border-box;
+  height: 49px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  text-transform: capitalize;
+  color: #ffffff;
+}
+
+.container > button:last-of-type {
+  background: #ff0000;
+  border: 2px solid #ff0000;
+  cursor: pointer;
+}

@@ -10,8 +10,6 @@ const TransactionForm = ({ handleSubmit }: ParameterType) => {
   const [name, setName] = useState('');
   const [amount, setAmount] = useState(0);
 
-  const submit = () => {};
-
   return (
     <form className={styles.container}>
       <p> add new transaction</p>
@@ -22,10 +20,10 @@ const TransactionForm = ({ handleSubmit }: ParameterType) => {
         label='amount'
         type='text'
         setter={setAmount}
-        error='This field is required'
       />
       <button
-        onClick={() => {
+        onClick={(event) => {
+          event.preventDefault();
           handleSubmit(name, amount);
         }}
       >

@@ -9,7 +9,7 @@ interface ParameterType {
 const ExpenseSummary = ({ transactions }: ParameterType) => {
   const [income, setIncome] = useState(0);
   const [expense, setExpense] = useState(0);
-
+  console.log(transactions);
   useEffect(() => {
     let value = 0;
     transactions.forEach((transaction) => {

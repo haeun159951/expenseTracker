@@ -6,10 +6,16 @@ import transaction, {
 import { Expense } from '../../service/expense';
 
 interface ParameterType {
+  handleDelete: any;
+  selectExpense: any;
   transactions: Expense[];
 }
 
-const ExpenseHistory = ({ transactions }: ParameterType) => {
+const ExpenseHistory = ({
+  transactions,
+  handleDelete,
+  selectExpense,
+}: ParameterType) => {
   return (
     <div className={styles.container}>
       <h1>History</h1>
@@ -19,6 +25,12 @@ const ExpenseHistory = ({ transactions }: ParameterType) => {
           key={transaction._id}
           name={transaction.name}
           amount={transaction.amount}
+          handleDelete={() => {
+            handleDelete(transaction._id);
+          }}
+          selectExpense={() =>
+            selectExpense(transaction._id, transaction.name, transaction.amount)
+          }
         />
       ))}
     </div>

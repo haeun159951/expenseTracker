@@ -6,6 +6,7 @@ interface ParameterType {
   type: string;
   name?: string;
   setter: any;
+  value?: string;
   error?: string;
 }
 const ExpenseInputField = ({
@@ -15,6 +16,7 @@ const ExpenseInputField = ({
   name,
   error,
   setter,
+  value,
 }: ParameterType) => {
   return (
     <div
@@ -34,6 +36,7 @@ const ExpenseInputField = ({
         type={type}
         id={id}
         name={name}
+        value={value}
         onChange={(event) => {
           setter(event.target.value); //whatever user type it, it will automatically set up
         }}
