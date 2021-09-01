@@ -20,11 +20,14 @@ export const sign_up = async (
   password: string
 ): Promise<SignUpResponse> => {
   try {
-    const response = await axios.post('http://localhost:8080/sign-up', {
-      username,
-      email,
-      password,
-    });
+    const response = await axios.post(
+      ' https://hekim-expense-tracker.herokuapp.com/sign-up',
+      {
+        username,
+        email,
+        password,
+      }
+    );
     return response.data;
   } catch (exception) {
     throw exception.response;
@@ -36,10 +39,13 @@ export const sign_in = async (
   password: string
 ): Promise<SignInResponse> => {
   try {
-    const response = await axios.post('http://localhost:8080/sign-in', {
-      username,
-      password,
-    });
+    const response = await axios.post(
+      ' https://hekim-expense-tracker.herokuapp.com/sign-in',
+      {
+        username,
+        password,
+      }
+    );
     return response.data;
   } catch (exception) {
     throw exception.response;

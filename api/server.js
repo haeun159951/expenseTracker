@@ -5,6 +5,11 @@ const { AuthRouter } = require('./controllers/authentication');
 const { ExpenseRouter } = require('./controllers/expense');
 
 const server = express();
+server.use(
+  cors({
+    origin: 'https://hekim-expense-tracker.herokuapp.com',
+  })
+);
 server.use(cors());
 server.use(express.urlencoded({ extended: true }));
 server.use(express.json());

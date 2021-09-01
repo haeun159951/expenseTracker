@@ -18,7 +18,7 @@ export const create_expense = async (
 ): Promise<Expense> => {
   try {
     const response = await axios.post(
-      'http://localhost:8080/expense',
+      ' https://hekim-expense-tracker.herokuapp.com/expense',
       {
         name,
         amount,
@@ -48,7 +48,7 @@ export const edit_expense = async (
     if (amount) updates.amount = amount;
 
     const response = await axios.put(
-      `http://localhost:8080/expense`,
+      ` https://hekim-expense-tracker.herokuapp.com/expense`,
       {
         ...updates,
       },
@@ -70,7 +70,7 @@ export const delete_expense = async (
 ): Promise<Expense> => {
   try {
     const response = await axios.delete(
-      `http://localhost:8080/expense/${id}`,
+      ` https://hekim-expense-tracker.herokuapp.com/expense/${id}`,
 
       {
         headers: {
@@ -88,11 +88,14 @@ export const retrieve_all_expenses = async (
   token: string
 ): Promise<RetrieveAllExpenseResponse> => {
   try {
-    const response = await axios.get('http://localhost:8080/expenses', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const response = await axios.get(
+      ' https://hekim-expense-tracker.herokuapp.com/expenses',
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
     return response.data;
   } catch (exception) {
     throw exception.reponse;
