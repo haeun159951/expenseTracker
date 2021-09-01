@@ -21,5 +21,5 @@ server.use(ExpenseRouter);
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
-  server.listen(8080);
+  server.listen(process.env.PORT);
 })();
