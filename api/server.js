@@ -7,7 +7,7 @@ const { ExpenseRouter } = require('./controllers/expense');
 const server = express();
 server.use(
   cors({
-    origin: 'https://hekim-expense-tracker.herokuapp.com',
+    origin: 'https://localhost:3000/',
   })
 );
 server.use(cors());
